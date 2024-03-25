@@ -1,4 +1,5 @@
 # Created ListNode to represent each node in a double-sided linked list 
+# Also created this class to be able to initiate a node 
 class ListNode:
     def __init__(self, key, value):
         self.key = key
@@ -14,7 +15,7 @@ class LRUCache:
     def __init__(self, capacity):
         self.capacity = capacity
         self.cache = {}
-        self.front = ListNode(None,None) # Dummy start/back 
+        self.front = ListNode(None,None) # Dummy front/back 
         self.back = ListNode(None,None) 
         self.head.next = self.front
         self.tail.prev = self.back
