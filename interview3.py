@@ -17,8 +17,10 @@ class LRUCache:
         self.cache = {}
         self.front = ListNode(None,None) # Dummy front/back 
         self.back = ListNode(None,None) 
-        self.head.next = self.front
-        self.tail.prev = self.back
+        self.head = self.front
+        self.tail = self.back
+        self.head.next = self.head
+        self.tail.prev = self.tail
         
 # 2. int get(int key) Return the value of the key if the key exists, otherwise return -1.
     def int_get(self, key):
@@ -62,7 +64,7 @@ class LRUCache:
     def _add_to_front(self, node):
         next_node = self.head.next
         self.head.next = node
-        node.prev = self.start
+        node.prev = self.head
         node.next = next_node
         next_node.prev = node
 
@@ -71,3 +73,5 @@ class LRUCache:
         del self.cache[last_node.key]
         self._remove_node(last_node)
         
+
+print(LRUCache())
